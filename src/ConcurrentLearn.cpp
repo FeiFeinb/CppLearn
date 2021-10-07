@@ -301,4 +301,5 @@ void auto_test(auto a) {}
 
 int main() {
     auto_test(10);
+    std::cout << "Hello" << std::endl;
 }

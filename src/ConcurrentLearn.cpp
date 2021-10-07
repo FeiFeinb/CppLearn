@@ -267,39 +267,17 @@ public:
     }
 };
 
-template<typename Delegate, typename User = int>
-class TDelegate
+void test_smart_ptr()
 {
-public:
-    static_assert(sizeof(Delegate) == 0, "Error");
-};
+//    int** p = new int*[3]{};
+//    for (int i = 0; i < 3; i++)
+//        p[i] = new int[5]{};
 
-template<typename Delegate, typename... Param, typename User>
-class TDelegate<Delegate(Param...), User>
-{
-public:
-
-};
-
-template<typename... T>
-class TestVoid
-{
-public:
-    void si()
-    {
-        std::cout << sizeof...(T);
-    }
-};
-
-template<typename T = void>
-struct GJ
-{
-    using U = T;
-};
-
-void auto_test(auto a) {}
+    std::shared_ptr<std::shared_ptr<int[]>[]> sp = std::make_shared<std::shared_ptr<int[]>[]>(3);
+    for (int i = 0; i < 3; i++)
+        sp[i] = std::make_shared<int[]>(5);
+}
 
 int main() {
-    auto_test(10);
-    std::cout << "Hello" << std::endl;
+    test_smart_ptr();
 }

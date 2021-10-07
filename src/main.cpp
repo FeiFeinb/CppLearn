@@ -75,7 +75,7 @@ struct TestTemplate
 template<>
 struct TestTemplate<int>
 {
-    void TestIntFunc() {}
+    void intFunc() {}
 };
 
 template<>
@@ -89,7 +89,7 @@ void TemplateStructTest()
     // 全特化测试
     TestTemplate<double> ttd;
     TestTemplate<int> tti;
-    tti.TestIntFunc();
+    tti.intFunc();
     TestTemplate<string> tts;
     tts.TestStringFunc();
 }

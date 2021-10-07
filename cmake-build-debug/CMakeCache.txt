@@ -15,7 +15,10 @@
 ########################
 
 //Path to a program.
-CMAKE_AR:FILEPATH=D:/Visual/VC/Tools/MSVC/14.28.29333/bin/Hostx86/x86/lib.exe
+CMAKE_ADDR2LINE:FILEPATH=C:/MinGW/bin/addr2line.exe
+
+//Path to a program.
+CMAKE_AR:FILEPATH=D:/Visual/VC/Tools/MSVC/14.29.30133/bin/Hostx86/x86/lib.exe
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
@@ -36,7 +39,7 @@ CMAKE_CODEBLOCKS_MAKE_ARGUMENTS:STRING=
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
 //CXX compiler
-CMAKE_CXX_COMPILER:FILEPATH=D:/Visual/VC/Tools/MSVC/14.28.29333/bin/Hostx86/x86/cl.exe
+CMAKE_CXX_COMPILER:STRING=D:/Visual/VC/Tools/MSVC/14.29.30133/bin/Hostx86/x86/cl.exe
 
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /GR /EHsc
@@ -57,7 +60,7 @@ CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=/Zi /O2 /Ob1 /DNDEBUG
 CMAKE_CXX_STANDARD_LIBRARIES:STRING=kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
 
 //C compiler
-CMAKE_C_COMPILER:FILEPATH=D:/Visual/VC/Tools/MSVC/14.28.29333/bin/Hostx86/x86/cl.exe
+CMAKE_C_COMPILER:STRING=D:/Visual/VC/Tools/MSVC/14.29.30133/bin/Hostx86/x86/cl.exe
 
 //Flags used by the C compiler during all build types.
 CMAKE_C_FLAGS:STRING=/DWIN32 /D_WINDOWS
@@ -80,6 +83,9 @@ CMAKE_C_STANDARD_LIBRARIES:STRING=kernel32.lib user32.lib gdi32.lib winspool.lib
 //No help, variable specified on the command line.
 CMAKE_DEPENDS_USE_COMPILER:UNINITIALIZED=FALSE
 
+//Path to a program.
+CMAKE_DLLTOOL:FILEPATH=C:/MinGW/bin/dlltool.exe
+
 //Flags used by the linker during all build types.
 CMAKE_EXE_LINKER_FLAGS:STRING=/machine:X86
 
@@ -99,7 +105,7 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/CppLearn
 
 //Path to a program.
-CMAKE_LINKER:FILEPATH=D:/Visual/VC/Tools/MSVC/14.28.29333/bin/Hostx86/x86/link.exe
+CMAKE_LINKER:FILEPATH=D:/Visual/VC/Tools/MSVC/14.29.30133/bin/Hostx86/x86/link.exe
 
 //Program used to build from makefiles.
 CMAKE_MAKE_PROGRAM:STRING=nmake
@@ -127,6 +133,15 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 //Path to a program.
 CMAKE_MT:FILEPATH=D:/Windows Kits/10/bin/10.0.18362.0/x86/mt.exe
 
+//Path to a program.
+CMAKE_NM:FILEPATH=C:/MinGW/bin/nm.exe
+
+//Path to a program.
+CMAKE_OBJCOPY:FILEPATH=C:/MinGW/bin/objcopy.exe
+
+//Path to a program.
+CMAKE_OBJDUMP:FILEPATH=C:/MinGW/bin/objdump.exe
+
 //Value Computed by CMake
 CMAKE_PROJECT_DESCRIPTION:STATIC=
 
@@ -153,6 +168,9 @@ CMAKE_RC_FLAGS_RELEASE:STRING=
 
 //Flags for Windows Resource Compiler during RELWITHDEBINFO builds.
 CMAKE_RC_FLAGS_RELWITHDEBINFO:STRING=
+
+//Path to a program.
+CMAKE_READELF:FILEPATH=C:/MinGW/bin/readelf.exe
 
 //Flags used by the linker during the creation of shared libraries
 // during all build types.
@@ -201,6 +219,9 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
 // during RELWITHDEBINFO builds.
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
+//Path to a program.
+CMAKE_STRIP:FILEPATH=C:/MinGW/bin/strip.exe
+
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
 // during the make.  This is useful for debugging only. With Visual
@@ -218,6 +239,8 @@ CppLearn_SOURCE_DIR:STATIC=D:/C++/CppLearn
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: CMAKE_ADDR2LINE
+CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
@@ -264,6 +287,8 @@ CMAKE_C_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_STANDARD_LIBRARIES
 CMAKE_C_STANDARD_LIBRARIES-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_DLLTOOL
+CMAKE_DLLTOOL-ADVANCED:INTERNAL=1
 //Executable file format
 CMAKE_EXECUTABLE_FORMAT:INTERNAL=Unknown
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS
@@ -279,9 +304,9 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //Name of external makefile project generator.
 CMAKE_EXTRA_GENERATOR:INTERNAL=CodeBlocks
 //CXX compiler system include directories
-CMAKE_EXTRA_GENERATOR_CXX_SYSTEM_INCLUDE_DIRS:INTERNAL=D:\Visual\VC\Tools\MSVC\14.28.29333\ATLMFC\include;D:\Visual\VC\Tools\MSVC\14.28.29333\include;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um;D:\Windows Kits\10\include\10.0.18362.0\ucrt;D:\Windows Kits\10\include\10.0.18362.0\shared;D:\Windows Kits\10\include\10.0.18362.0\um;D:\Windows Kits\10\include\10.0.18362.0\winrt;D:\Windows Kits\10\include\10.0.18362.0\cppwinrt
+CMAKE_EXTRA_GENERATOR_CXX_SYSTEM_INCLUDE_DIRS:INTERNAL=D:\Visual\VC\Tools\MSVC\14.29.30133\ATLMFC\include;D:\Visual\VC\Tools\MSVC\14.29.30133\include;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um;D:\Windows Kits\10\include\10.0.18362.0\ucrt;D:\Windows Kits\10\include\10.0.18362.0\shared;D:\Windows Kits\10\include\10.0.18362.0\um;D:\Windows Kits\10\include\10.0.18362.0\winrt;D:\Windows Kits\10\include\10.0.18362.0\cppwinrt
 //C compiler system include directories
-CMAKE_EXTRA_GENERATOR_C_SYSTEM_INCLUDE_DIRS:INTERNAL=D:\Visual\VC\Tools\MSVC\14.28.29333\ATLMFC\include;D:\Visual\VC\Tools\MSVC\14.28.29333\include;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um;D:\Windows Kits\10\include\10.0.18362.0\ucrt;D:\Windows Kits\10\include\10.0.18362.0\shared;D:\Windows Kits\10\include\10.0.18362.0\um;D:\Windows Kits\10\include\10.0.18362.0\winrt;D:\Windows Kits\10\include\10.0.18362.0\cppwinrt
+CMAKE_EXTRA_GENERATOR_C_SYSTEM_INCLUDE_DIRS:INTERNAL=D:\Visual\VC\Tools\MSVC\14.29.30133\ATLMFC\include;D:\Visual\VC\Tools\MSVC\14.29.30133\include;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um;D:\Windows Kits\10\include\10.0.18362.0\ucrt;D:\Windows Kits\10\include\10.0.18362.0\shared;D:\Windows Kits\10\include\10.0.18362.0\um;D:\Windows Kits\10\include\10.0.18362.0\winrt;D:\Windows Kits\10\include\10.0.18362.0\cppwinrt
 //Name of generator.
 CMAKE_GENERATOR:INTERNAL=NMake Makefiles
 //Generator instance identifier.
@@ -309,8 +334,14 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MT
 CMAKE_MT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_NM
+CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
 CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+//ADVANCED property for variable: CMAKE_OBJCOPY
+CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_OBJDUMP
+CMAKE_OBJDUMP-ADVANCED:INTERNAL=1
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //noop for ranlib
@@ -328,6 +359,8 @@ CMAKE_RC_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_RC_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_FLAGS_RELWITHDEBINFO
 CMAKE_RC_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_READELF
+CMAKE_READELF-ADVANCED:INTERNAL=1
 //Path to CMake installation.
 CMAKE_ROOT:INTERNAL=D:/CLion 2021.2.2/bin/cmake/win/share/cmake-3.20
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
@@ -354,6 +387,8 @@ CMAKE_STATIC_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_STRIP
+CMAKE_STRIP-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 

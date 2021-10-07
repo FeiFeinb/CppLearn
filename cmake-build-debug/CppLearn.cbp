@@ -24,8 +24,8 @@
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add directory="D:\Visual\VC\Tools\MSVC\14.28.29333\ATLMFC\include"/>
-					<Add directory="D:\Visual\VC\Tools\MSVC\14.28.29333\include"/>
+					<Add directory="D:\Visual\VC\Tools\MSVC\14.29.30133\ATLMFC\include"/>
+					<Add directory="D:\Visual\VC\Tools\MSVC\14.29.30133\include"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
 					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>
@@ -47,8 +47,8 @@
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
 				<Compiler>
-					<Add directory="D:\Visual\VC\Tools\MSVC\14.28.29333\ATLMFC\include"/>
-					<Add directory="D:\Visual\VC\Tools\MSVC\14.28.29333\include"/>
+					<Add directory="D:\Visual\VC\Tools\MSVC\14.29.30133\ATLMFC\include"/>
+					<Add directory="D:\Visual\VC\Tools\MSVC\14.29.30133\include"/>
 					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
 					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\ucrt"/>
 					<Add directory="D:\Windows Kits\10\include\10.0.18362.0\shared"/>

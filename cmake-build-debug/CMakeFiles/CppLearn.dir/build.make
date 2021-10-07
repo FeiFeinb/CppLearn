@@ -58,95 +58,95 @@ include CMakeFiles\CppLearn.dir\flags.make
 CMakeFiles\CppLearn.dir\src\main.cpp.obj: CMakeFiles\CppLearn.dir\flags.make
 CMakeFiles\CppLearn.dir\src\main.cpp.obj: ..\src\main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\C++\CppLearn\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CppLearn.dir/src/main.cpp.obj"
-	D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+	D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\CppLearn.dir\src\main.cpp.obj /FdCMakeFiles\CppLearn.dir\ /FS -c D:\C++\CppLearn\src\main.cpp
 <<
 
 CMakeFiles\CppLearn.dir\src\main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CppLearn.dir/src/main.cpp.i"
-	D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe > CMakeFiles\CppLearn.dir\src\main.cpp.i @<<
+	D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe > CMakeFiles\CppLearn.dir\src\main.cpp.i @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\C++\CppLearn\src\main.cpp
 <<
 
 CMakeFiles\CppLearn.dir\src\main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CppLearn.dir/src/main.cpp.s"
-	D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+	D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\CppLearn.dir\src\main.cpp.s /c D:\C++\CppLearn\src\main.cpp
 <<
 
 CMakeFiles\CppLearn.dir\src\MyTuple.cpp.obj: CMakeFiles\CppLearn.dir\flags.make
 CMakeFiles\CppLearn.dir\src\MyTuple.cpp.obj: ..\src\MyTuple.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\C++\CppLearn\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CppLearn.dir/src/MyTuple.cpp.obj"
-	D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+	D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\CppLearn.dir\src\MyTuple.cpp.obj /FdCMakeFiles\CppLearn.dir\ /FS -c D:\C++\CppLearn\src\MyTuple.cpp
 <<
 
 CMakeFiles\CppLearn.dir\src\MyTuple.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CppLearn.dir/src/MyTuple.cpp.i"
-	D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe > CMakeFiles\CppLearn.dir\src\MyTuple.cpp.i @<<
+	D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe > CMakeFiles\CppLearn.dir\src\MyTuple.cpp.i @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\C++\CppLearn\src\MyTuple.cpp
 <<
 
 CMakeFiles\CppLearn.dir\src\MyTuple.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CppLearn.dir/src/MyTuple.cpp.s"
-	D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+	D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\CppLearn.dir\src\MyTuple.cpp.s /c D:\C++\CppLearn\src\MyTuple.cpp
 <<
 
 CMakeFiles\CppLearn.dir\src\STLLearn.cpp.obj: CMakeFiles\CppLearn.dir\flags.make
 CMakeFiles\CppLearn.dir\src\STLLearn.cpp.obj: ..\src\STLLearn.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\C++\CppLearn\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CppLearn.dir/src/STLLearn.cpp.obj"
-	D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+	D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\CppLearn.dir\src\STLLearn.cpp.obj /FdCMakeFiles\CppLearn.dir\ /FS -c D:\C++\CppLearn\src\STLLearn.cpp
 <<
 
 CMakeFiles\CppLearn.dir\src\STLLearn.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CppLearn.dir/src/STLLearn.cpp.i"
-	D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe > CMakeFiles\CppLearn.dir\src\STLLearn.cpp.i @<<
+	D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe > CMakeFiles\CppLearn.dir\src\STLLearn.cpp.i @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\C++\CppLearn\src\STLLearn.cpp
 <<
 
 CMakeFiles\CppLearn.dir\src\STLLearn.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CppLearn.dir/src/STLLearn.cpp.s"
-	D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+	D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\CppLearn.dir\src\STLLearn.cpp.s /c D:\C++\CppLearn\src\STLLearn.cpp
 <<
 
 CMakeFiles\CppLearn.dir\src\ConcurrentLearn.cpp.obj: CMakeFiles\CppLearn.dir\flags.make
 CMakeFiles\CppLearn.dir\src\ConcurrentLearn.cpp.obj: ..\src\ConcurrentLearn.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\C++\CppLearn\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CppLearn.dir/src/ConcurrentLearn.cpp.obj"
-	D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+	D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\CppLearn.dir\src\ConcurrentLearn.cpp.obj /FdCMakeFiles\CppLearn.dir\ /FS -c D:\C++\CppLearn\src\ConcurrentLearn.cpp
 <<
 
 CMakeFiles\CppLearn.dir\src\ConcurrentLearn.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CppLearn.dir/src/ConcurrentLearn.cpp.i"
-	D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe > CMakeFiles\CppLearn.dir\src\ConcurrentLearn.cpp.i @<<
+	D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe > CMakeFiles\CppLearn.dir\src\ConcurrentLearn.cpp.i @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\C++\CppLearn\src\ConcurrentLearn.cpp
 <<
 
 CMakeFiles\CppLearn.dir\src\ConcurrentLearn.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CppLearn.dir/src/ConcurrentLearn.cpp.s"
-	D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+	D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\CppLearn.dir\src\ConcurrentLearn.cpp.s /c D:\C++\CppLearn\src\ConcurrentLearn.cpp
 <<
 
 CMakeFiles\CppLearn.dir\src\Utilities\UtilityClasses.cpp.obj: CMakeFiles\CppLearn.dir\flags.make
 CMakeFiles\CppLearn.dir\src\Utilities\UtilityClasses.cpp.obj: ..\src\Utilities\UtilityClasses.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\C++\CppLearn\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CppLearn.dir/src/Utilities/UtilityClasses.cpp.obj"
-	D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+	D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\CppLearn.dir\src\Utilities\UtilityClasses.cpp.obj /FdCMakeFiles\CppLearn.dir\ /FS -c D:\C++\CppLearn\src\Utilities\UtilityClasses.cpp
 <<
 
 CMakeFiles\CppLearn.dir\src\Utilities\UtilityClasses.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CppLearn.dir/src/Utilities/UtilityClasses.cpp.i"
-	D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe > CMakeFiles\CppLearn.dir\src\Utilities\UtilityClasses.cpp.i @<<
+	D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe > CMakeFiles\CppLearn.dir\src\Utilities\UtilityClasses.cpp.i @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\C++\CppLearn\src\Utilities\UtilityClasses.cpp
 <<
 
 CMakeFiles\CppLearn.dir\src\Utilities\UtilityClasses.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CppLearn.dir/src/Utilities/UtilityClasses.cpp.s"
-	D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+	D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\CppLearn.dir\src\Utilities\UtilityClasses.cpp.s /c D:\C++\CppLearn\src\Utilities\UtilityClasses.cpp
 <<
 
@@ -169,7 +169,7 @@ CppLearn.exe: CMakeFiles\CppLearn.dir\src\Utilities\UtilityClasses.cpp.obj
 CppLearn.exe: CMakeFiles\CppLearn.dir\build.make
 CppLearn.exe: CMakeFiles\CppLearn.dir\objects1.rsp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\C++\CppLearn\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable CppLearn.exe"
-	"D:\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\CppLearn.dir --rc=D:\WINDOW~1\10\bin\100183~1.0\x86\rc.exe --mt=D:\WINDOW~1\10\bin\100183~1.0\x86\mt.exe --manifests -- D:\Visual\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\CppLearn.dir\objects1.rsp @<<
+	"D:\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\CppLearn.dir --rc=D:\WINDOW~1\10\bin\100183~1.0\x86\rc.exe --mt=D:\WINDOW~1\10\bin\100183~1.0\x86\mt.exe --manifests -- D:\Visual\VC\Tools\MSVC\14.29.30133\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\CppLearn.dir\objects1.rsp @<<
  /out:CppLearn.exe /implib:CppLearn.lib /pdb:D:\C++\CppLearn\cmake-build-debug\CppLearn.pdb /version:0.0 /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<
 

@@ -1,11 +1,13 @@
+#include <utility>
+
 #include "Utilities/AllHeader.h"
 
 #include "Utilities/UtilityClasses.h"
 
 template<typename T>
-void quick_sort(T &vec, long long l, long long r) {
+void quick_sort(T &vec, std::int64_t l, std::int64_t r) {
     if (l >= r) return;
-    long long i = l - 1, j = r + 1, x = vec[l];
+    std::int64_t i = l - 1, j = r + 1, x = vec[l];
     while (i < j) {
         while (vec[++i] < x);
         while (vec[--j] > x);
@@ -21,11 +23,42 @@ void single_thread_quick_sort(T &vec) {
     quick_sort(vec, 0, vec.size() - 1);
 }
 
-void merge(std::vector<int> &vec, int l, int r, const std::vector<int> &cached) {
+class SimpleThreadPool {
+private:
+public:
+    std::vector<std::thread> pool;
+    SimpleThreadPool() = default;
+
+    SimpleThreadPool(std::size_t amount) {
+        pool.reserve(amount);
+    }
+
+    ~SimpleThreadPool() {
+        join_all();
+    }
+
+    template<typename... T>
+    void add(T &&... args) {
+        pool.emplace_back(std::forward<T>(args)...);
+    }
+
+    void join_all() {
+        for (auto &t: pool)
+            if (t.joinable())
+                t.join();
+    }
+
+    void clear() {
+        pool.clear();
+    }
+};
+
+template<typename T>
+void merge(T &vec, const T &cached, const std::tuple<std::size_t, std::size_t, std::size_t> &t) {
+    const auto&[l, mid, r] = t;
     if (l >= r)
         return;
-    int mid = (r + l) / 2;
-    int i = l, j = mid + 1, resultIndex = l;
+    std::size_t i = l, j = mid + 1, resultIndex = l;
     while (i <= mid && j <= r) {
         if (cached[i] <= cached[j])
             vec[resultIndex++] = cached[i++];
@@ -38,86 +71,56 @@ void merge(std::vector<int> &vec, int l, int r, const std::vector<int> &cached) 
         vec[resultIndex++] = cached[j++];
 }
 
-void multi_thread_quick_sort(std::vector<int> &vec, const int threadLogarithm) {
-    // 多线程快排
-    int threadAmount = std::pow(2, threadLogarithm);
-    std::vector<std::thread> threadPool;
-    threadPool.reserve(threadAmount);
-    // TODO: 解决容量不能整除的问题
-    std::size_t vecSize = vec.size() / threadAmount;
-    for (int i = 0; i < threadAmount; i++)
-        threadPool.emplace_back(quick_sort<std::vector<int>>, std::ref(vec), i * vecSize, (i + 1) * vecSize - 1);
-    for (auto &t: threadPool)
-        t.join();
+// 多线程快排
+template<typename T>
+void multi_thread_quick_sort(T &vec) {
+    // 获取当前最大可用的线程数量
+    std::size_t threadAmount = std::thread::hardware_concurrency();
+    SimpleThreadPool threadPool(threadAmount);
+
+    // 记录快排区间
+    std::vector<std::pair<std::size_t, std::size_t>> sortArea;
+    sortArea.reserve(threadAmount);
+
+    // 多线程分组快排
+    for (std::size_t i = 0; i < threadAmount; i++) {
+        std::size_t lengthPerThread = vec.size() / threadAmount;
+        sortArea.emplace_back(i * lengthPerThread, (i + 1) * lengthPerThread - 1);
+        // 对结果进行特殊处理
+        if (i == threadAmount - 1)
+            sortArea.back().second = vec.size() - 1;
+        threadPool.add(quick_sort<T>, std::ref(vec), sortArea.back().first, sortArea.back().second);
+    }
+    threadPool.join_all();
     // 开始归并操作
-    // 3 8
-    for (int i = threadLogarithm - 1; i >= 0; i--) {
-        std::vector<int> result(vec.size());
+    for (threadAmount /= 2; threadAmount != 0; threadAmount /= 2) {
+        T result(vec.size());
         threadPool.clear();
         // 处理归并所需要的线程数量
-        int handleMergeThreadAmount = std::pow(2, i);
         // 每条线程应该处理的数据数量
-        int vecSizePerThread = vec.size() / handleMergeThreadAmount;
-        for (int j = 0; j < handleMergeThreadAmount; j++)
-            threadPool.emplace_back(merge, std::ref(result), j * vecSizePerThread, (j + 1) * vecSizePerThread - 1,
-                                    std::ref(vec));
-        for (auto &t: threadPool)
-            t.join();
+        for (std::size_t j = 0; j < threadAmount; j++) {
+            std::size_t startIndex = j * sortArea.size() / threadAmount;
+            std::size_t endIndex = (j + 1) * sortArea.size() / threadAmount - 1;
+            auto start = sortArea[startIndex].first;
+            auto mid = sortArea[(startIndex + endIndex) / 2].second;
+            auto end = sortArea[endIndex].second;
+            threadPool.add(merge<T>, std::ref(result), std::ref(vec), std::make_tuple(start, mid, end));
+        }
+        threadPool.join_all();
         vec = std::move(result);
     }
 }
 
 void test_multi_sort() {
-    std::cout << std::thread::hardware_concurrency() << std::endl;
-    {
-        std::cout << "单线程排序中... 数据量为16000000" << std::endl;
-        auto vec1 = generate_random_container_single_thread<std::vector>(1600000, 0, 1000000);
-        InTime i1;
-        single_thread_quick_sort(vec1);
-    }
-    {
-        std::cout << "多线程排序中... 数据量为16000000" << std::endl;
-        auto vec2 = generate_random_container_single_thread<std::vector>(1600000, 0, 1000000);
-        InTime i2;
-        multi_thread_quick_sort(vec2, 3);
-    }
+    auto vec1 = generate_random_container_single_thread<std::vector>(10, 0, 1000000);
+    auto vec2 = vec1;
+    single_thread_quick_sort(vec1);
+    std::cout << std::endl;
+    multi_thread_quick_sort(vec2);
+    std::cout << std::boolalpha << std::equal(vec1.begin(), vec1.end(), vec2.begin(), vec2.end());
 }
 
-int find_max_num_single_thread(const std::vector<int> &vec) {
-    int size = vec.size();
-    int result = vec[0];
-    for (int i = 0; i < size; i++) {
-        result = std::max(vec[i], result);
-    }
-    return result;
-}
-
-int find_max_num_multi_thread(const std::vector<int> &vec) {
-    auto threadAmount = std::thread::hardware_concurrency();
-    auto handleLength = vec.size() / threadAmount;
-    std::vector<std::thread> threadVec;
-    std::vector<int> maxVec(threadAmount);
-    for (auto i = 0; i < threadAmount; i++)
-        threadVec.emplace_back([&maxVec, &vec, handleLength](auto index) {
-            maxVec[index] = *std::max_element(vec.begin() + index * handleLength, vec.begin() + (index + 1) * handleLength - 1);
-        }, i);
-    for (auto& t : threadVec)
-        t.join();
-    return *std::max_element(maxVec.begin(), maxVec.end());
-}
-
-void test_multi_max()
-{
-    auto vec = generate_random_container_multi_thread<std::vector>(10000000, 0, 100000000);
-    InTime it;
-    std::cout << find_max_num_single_thread(vec) << std::endl;
-    it.Stop();
-    it.ReStart();
-    std::cout << find_max_num_multi_thread(vec) << std::endl;
-    it.Stop();
-}
-
-int main() {
+void test_generate_random_vec() {
     {
         InTime i1;
         auto vec1 = generate_random_container_single_thread<std::vector>(10000000, 0, 1000000);
@@ -128,5 +131,174 @@ int main() {
         auto vec2 = generate_random_container_multi_thread<std::vector>(10000000, 0, 1000000);
         i2.Stop();
     }
-    system("pause");
+}
+
+template<template<typename> typename Container, typename Element>
+Element find_max_num_single_thread(const Container<Element> &container) {
+    std::size_t size = container.size();
+    Element result = container[0];
+    for (std::size_t i = 0; i < size; i++)
+        result = std::max(container[i], result);
+    return result;
+}
+
+template<template<typename> typename Container, typename Element>
+Element find_max_num_multi_thread(const Container<Element> &vec) {
+    std::size_t threadAmount = std::thread::hardware_concurrency();
+    std::size_t handleLength = vec.size() / threadAmount;
+    std::vector<std::thread> threadVec;
+    std::vector<Element> maxVec(threadAmount);
+    for (std::size_t i = 0; i < threadAmount; i++)
+        threadVec.emplace_back([&maxVec, &vec, handleLength](std::size_t index) {
+            maxVec[index] = *std::max_element(vec.begin() + index * handleLength,
+                                              vec.begin() + (index + 1) * handleLength - 1);
+        }, i);
+    for (auto &t: threadVec)
+        if (t.joinable())
+            t.join();
+    return *std::max_element(maxVec.begin(), maxVec.end());
+}
+
+void test_find_max_num() {
+    auto vec = generate_random_container_multi_thread<std::vector>(10000000, 0, 100000000);
+    InTime it;
+    std::cout << find_max_num_single_thread<std::vector>(vec) << std::endl;
+    it.Stop();
+    it.ReStart();
+    std::cout << find_max_num_multi_thread<std::vector>(vec) << std::endl;
+    it.Stop();
+}
+
+void test_atomic() {
+    InTime time;
+    std::atomic<int> count{0};
+    std::vector<std::thread> threadVec;
+    threadVec.reserve(8);
+    for (int i = 0; i < 8; i++) {
+        threadVec.emplace_back([&]() {
+            for (int j = 0; j < 1000000; j++)
+                count++;
+        });
+    }
+    for (auto &t: threadVec)
+        if (t.joinable())
+            t.join();
+    std::cout << count << std::endl;
+}
+
+void test_atomic_cas() {
+    InTime time;
+    std::atomic<int> count{0};
+    std::vector<std::thread> threadVec;
+    threadVec.reserve(8);
+    for (int i = 0; i < 8; i++) {
+        threadVec.emplace_back([&]() {
+            for (int j = 0; j < 1000000; j++) {
+                int oldData = count.load();
+                while (!std::atomic_compare_exchange_weak(&count, &oldData, oldData + 1));
+            }
+        });
+    }
+    for (auto &t: threadVec)
+        if (t.joinable())
+            t.join();
+    std::cout << count << std::endl;
+}
+
+void test_mutex() {
+    InTime time;
+    int count = 0;
+    std::vector<std::thread> threadVec;
+    threadVec.reserve(8);
+    std::mutex mutexLock;
+    for (int i = 0; i < 8; i++) {
+        threadVec.emplace_back([&]() {
+            for (int j = 0; j < 1000000; j++) {
+                mutexLock.lock();
+                count++;
+                mutexLock.unlock();
+            }
+        });
+    }
+
+    for (auto &t: threadVec)
+        if (t.joinable())
+            t.join();
+    std::cout << count << std::endl;
+}
+
+class AtomicSender {
+private:
+    std::atomic<std::uint64_t> prime_count;
+    std::atomic<std::uint64_t> cur_number;
+    std::uint64_t expected_index;
+
+    void find_prime() {
+        std::uint64_t t_number = 0;
+        do {
+            // return old data
+            t_number = std::atomic_fetch_add(&cur_number, 1);
+            if (!(t_number <= expected_index))
+                break;
+            bool is_prime = true;
+            for (std::uint64_t i = 2; i * i <= t_number; ++i) {
+                if (t_number % i == 0) {
+                    is_prime = false;
+                    break;
+                }
+            }
+            if (is_prime)
+                std::atomic_fetch_add(&prime_count, 1);
+        } while (t_number <= expected_index);
+    }
+
+public:
+    AtomicSender() : prime_count(0), cur_number(2), expected_index(0) {}
+
+    void multi_thread_find_prime() {
+        std::cin >> expected_index;
+        std::cout << "Find the prime number count less than" << expected_index << std::endl;
+        std::size_t threadMaxAmount = std::thread::hardware_concurrency();
+        SimpleThreadPool threadPool(threadMaxAmount);
+        for (std::size_t i = 0; i < threadMaxAmount; i++)
+            threadPool.add(&AtomicSender::find_prime, this);
+        threadPool.join_all();
+        std::cout << prime_count.load() << std::endl;
+    }
+};
+
+template<typename Delegate, typename User = int>
+class TDelegate
+{
+public:
+    static_assert(sizeof(Delegate) == 0, "Error");
+};
+
+template<typename Delegate, typename... Param, typename User>
+class TDelegate<Delegate(Param...), User>
+{
+public:
+
+};
+
+template<typename... T>
+class TestVoid
+{
+public:
+    void si()
+    {
+        std::cout << sizeof...(T);
+    }
+};
+
+template<typename T = void>
+struct GJ
+{
+    using U = T;
+};
+
+void auto_test(auto a) {}
+
+int main() {
+    auto_test(10);
 }

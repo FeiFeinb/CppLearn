@@ -26,6 +26,7 @@
 #include<mutex>
 #include<future>
 #include<atomic>
+#include<execution>
 
 // STLÆäËû
 #include<memory>

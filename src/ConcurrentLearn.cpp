@@ -3,6 +3,7 @@
 #include "Utilities/AllHeader.h"
 
 #include "Utilities/UtilityClasses.h"
+#include "Utilities/ClassesForTest.h"
 
 template<typename T>
 void quick_sort(T &vec, std::int64_t l, std::int64_t r) {
@@ -278,6 +279,7 @@ void test_smart_ptr()
         sp[i] = std::make_shared<int[]>(5);
 }
 
-int main() {
-    test_smart_ptr();
+
+int main()
+{
 }

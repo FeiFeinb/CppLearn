@@ -304,27 +304,6 @@ void TestBound()
     // greater<int>给降序数组用
 }
 
-class TreeNode
-{
-public:
-    int data;
-
-    TreeNode()
-    {
-        cout << "无参构造" << endl;
-    }
-
-    TreeNode(int _data) : data(_data)
-    {
-        cout << "有参构造" << endl;
-    }
-
-    ~TreeNode()
-    {
-        cout << "销毁" << endl;
-    }
-};
-
 vector<string> split(const string& data)
 {
     vector<string> result;
@@ -480,22 +459,6 @@ private:
 
     ContainerBase* ptr;
 };
-
-class TestClass
-{
-public:
-    int data;
-
-    TestClass() { cout << "default create" << endl; }
-
-    TestClass(int _data) : data(_data) { std::cout << "param create" << std::endl; }
-
-    ~TestClass() { std::cout << "destroy" << std::endl; }
-};
-
-
-
-
 
 
 

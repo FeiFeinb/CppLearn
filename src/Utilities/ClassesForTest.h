@@ -25,9 +25,7 @@ struct POD_Str
 
 struct NonCopyStruct_Str
 {
-private:
     std::string name;
-public:
     NonCopyStruct_Str() = default;
     NonCopyStruct_Str(std::string);
     NonCopyStruct_Str(const NonCopyStruct_Str&) = delete;
@@ -39,14 +37,22 @@ public:
 
 struct StudentInfo_Str
 {
-private:
     std::string name;
-public:
     // 初始化用
     StudentInfo_Str(std::string);
     // 输出用
     friend std::ostream& operator<<(std::ostream&, const StudentInfo_Str&);
 };
+
+struct StudentInfo_Int
+{
+    int age;
+    // 初始化用
+    StudentInfo_Int(int);
+    // 输出用
+    friend std::ostream& operator<<(std::ostream&, const StudentInfo_Int&);
+};
+
 
 struct NormalStruct_Int
 {

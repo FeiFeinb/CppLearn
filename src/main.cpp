@@ -463,17 +463,6 @@ private:
 
 
 
-void f(int n)
-{
-    std::this_thread::sleep_for(std::chrono::seconds(n));
-    std::cout << "thread " << n << " ended" << '\n';
-}
-
-
-
-
-
-
 
 // std::vector<int> vec{1, 2, 3, 4, 4, 6, 7, 8};
 // std::replace_if(vec.begin(), vec.end(), std::bind(std::less<int>{}, std::placeholders::_1, 4), 100);

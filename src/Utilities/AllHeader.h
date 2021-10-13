@@ -18,8 +18,10 @@
 #include<forward_list>
 #include<map>
 #include<set>
+#include<array>
 #include<deque>
-
+#include<variant>
+#include<any>
 // ∂‡œﬂ≥Ã
 #include<thread>
 #include<condition_variable>
@@ -38,5 +40,7 @@
 #include<iterator>
 #include<utility>
 #include<type_traits>
+#include<typeinfo>
+#include<typeindex>
 
 #endif //CPPLEARN_ALLHEADER_H

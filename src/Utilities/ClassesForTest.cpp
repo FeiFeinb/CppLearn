@@ -23,6 +23,13 @@ std::ostream& operator<<(std::ostream& os, const StudentInfo_Str& _info)
     return os << _info.name;
 }
 
+StudentInfo_Int::StudentInfo_Int(int _age) : age(_age) {}
+
+std::ostream& operator<<(std::ostream& os, const StudentInfo_Int& _info)
+{
+    return os << _info.age;
+}
+
 
 NormalStruct_Int::NormalStruct_Int() : data(0)
 {

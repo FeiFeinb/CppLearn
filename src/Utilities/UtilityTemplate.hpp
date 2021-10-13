@@ -96,8 +96,32 @@ void print_container_line(const Container &cont) {
 }
 
 template<typename Container>
-void print_container_endl(const Container &cont) {
+void print_container_end_line(const Container &cont) {
     printer_container(cont, std::endl);
+}
+
+template<typename Array, std::size_t... Is>
+auto array_to_tuple_impl(const Array& _array, std::index_sequence<Is...> _sequence)
+{
+    return std::make_tuple(_array[Is]...);
+}
+
+template<typename T, std::size_t I, typename Sequence = std::make_index_sequence<I>>
+auto array_to_tuple(const std::array<T, I> _array)
+{
+    return array_to_tuple_impl(_array, Sequence{});
+}
+
+template<typename Tuple, std::size_t... Is>
+std::ostream& print_tuple_impl(std::ostream& os, const Tuple& tuple, std::index_sequence<Is...> sequence)
+{
+    return ((os << (Is == 0 ? "" : " ") << std::get<Is>(tuple)), ...);
+}
+
+template<typename... Ts>
+std::ostream& operator<<(std::ostream& os, std::tuple<Ts...> tuple)
+{
+    return print_tuple_impl(os, tuple, std::index_sequence_for<Ts...>{});
 }
 
 #endif

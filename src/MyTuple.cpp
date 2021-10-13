@@ -3,7 +3,6 @@
 //
 
 #include <utility>
-
 #include "Utilities/AllHeader.h"
 
 class TestClass
